@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <h1>Hallo</h1>
-      <HelloWorldComponent url="http://localhost:8080/helloworld"/>
+      <HelloWorldComponent url={import.meta.env.VITE_BASE_URL + "/helloworld"}/>
     </div>
   )
 }
