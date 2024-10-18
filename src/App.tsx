@@ -1,12 +1,16 @@
+import useAuth from "./hooks/useAuth"
 import AppRouter from "./routing/AppRouter"
 
 
 function App() {
+  const {isLogin, role, logout} = useAuth();
 
   return (
+    isLogin ?
     <div>
-      <AppRouter/>
-    </div>
+      <AppRouter role={role} logout={logout}/>
+    </div> :
+    <></>
   )
 }
 
