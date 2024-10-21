@@ -18,10 +18,12 @@ export default function useAuth() {
     const logout = kc.logout;
     kc.onTokenExpired = () => logout();
 
+    // set Token for every request in Header
     const setAuth = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${kc.token}`;
     }
 
+    // check and update Token if it is close to expire (Tokenupdate-time in seconds) 
     const checkToken = () => {
         kc.updateToken(import.meta.env.VITE_IDM_TOKENUPDATE)
         .then((refreshed) => {
@@ -35,6 +37,7 @@ export default function useAuth() {
         document.addEventListener("mouseup",checkToken);
     }, [])
 
+    // initialize keycloak and start authentication-process
     useEffect(() => {
         if (isRun.current) return;
         isRun.current = true;

@@ -3,7 +3,6 @@ import { useState } from "react"
 
 type Props = {
     url : string;
-    logout : () => void;
 }
 
 function HelloWorldComponent(props:Props) {
@@ -22,7 +21,6 @@ function HelloWorldComponent(props:Props) {
         <div>
             <button onClick={() => loadString()}>Klicken zum Laden</button>
             <p>Dieser Content wurde aus dem Backend geladen: {greetingContent}</p>
-            <button onClick={props.logout}>Logout</button>
         </div>
     )
 }

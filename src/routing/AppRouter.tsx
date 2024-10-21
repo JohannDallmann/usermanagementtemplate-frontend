@@ -13,7 +13,7 @@ export default function AppRouter(props : Props) {
     <Router>
       <Routes>
         <Route element={<ProtectedRoutes roles={["role_admin", "role_user"]} currentRole={props.role} />}>
-          <Route path="/" element={<LandingPage logout={props.logout}/>} />
+          <Route path="/" element={<LandingPage logout={props.logout} role={props.role}/>} />
         </Route>
         <Route element={<ProtectedRoutes roles={["role_admin"]} currentRole={props.role} />}>
           <Route path="/admin" element={<AdminPage />} />
